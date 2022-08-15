@@ -19,3 +19,4 @@ $ yarn dev
 $ cd b9-app
 $ yarn dev
 ```
+Use `git commit --no-verify` to skip husky checks
