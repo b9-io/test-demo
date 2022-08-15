@@ -1,9 +1,6 @@
 app:
   title: Scaffolded Backstage App
   baseUrl: http://localhost:3000
-  AUTH_GITHUB_CLIENT_ID: 50634ebc2571ab975cd4
-  AUTH_GITHUB_CLIENT_SECRET: 02a6b815c23d25e2ad10b425559ee3a8c8f04906
-  GITHUB_TOKEN: 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
 
 organization:
   name: B9 Startup

@@ -9,9 +9,6 @@ backend:
   # callers. When its value is "http://localhost:7007", it's strictly private
   # and can't be reached by others.
   baseUrl: http://localhost:7007
-  AUTH_GITHUB_CLIENT_ID: 50634ebc2571ab975cd4
-  AUTH_GITHUB_CLIENT_SECRET: 02a6b815c23d25e2ad10b425559ee3a8c8f04906
-  GITHUB_TOKEN: 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
 
   listen:
     port: 7007
