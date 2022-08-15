@@ -127,6 +127,14 @@ catalog:
       rules:
         - allow: [Template]
     - type: url
+      target: https://github.com/RoadieHQ/software-templates/blob/main/scaffolder-templates/create-empty-project/template.yaml
+      rules:
+        - allow: [Template]
+    - type: url
+      target: https://github.com/RoadieHQ/software-templates/blob/main/scaffolder-templates/github-pages-site/template.yaml
+      rules:
+        - allow: [Template]
+    - type: url
       target: https://github.com/backstage/software-templates/blob/main/scaffolder-templates/pull-request/template.yaml
       rules:
         - allow: [Template]

@@ -4,6 +4,10 @@ metadata:
   name: "test-demo"
   description: "demo"
   links:
+    - title: Website
+      url: http://backstage.io
+    - title: Documentation
+      url: https://backstage.io/docs
     - url: https://www.notion.so/Getting-Started-c19a951fdc3743ceb8f79c394039b1e1
       title: GettingStarted
       icon: dashboard
