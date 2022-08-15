@@ -12,9 +12,9 @@ backend:
   #auth:
   #   keys:
     #   - secret: ${AUTH_GITHUB_CLIENT_ID}
-  baseUrl: http://localhost:7007
+  baseUrl: http://localhost:7000
   listen:
-    port: 7007
+    port: 7000
     # Uncomment the following host directive to bind to all IPv4 interfaces and
     # not just the baseUrl hostname.
     host: 0.0.0.0
@@ -38,9 +38,8 @@ backend:
 integrations:
   github:
     - host: github.com
-      # This is a Personal Access Token or PAT from GitHub. You can find out how to generate this token, and more information
-      # about setting up the GitHub integration here: https://backstage.io/docs/getting-started/configuration#setting-up-a-github-integration
-      token: ${GITHUB_TOKEN}
+      token:
+        $env: GITHUB_TOKEN
     ### Example for how to add your GitHub Enterprise instance using the API:
     # - host: ghe.example.net
     #   apiBaseUrl: https://ghe.example.net/api/v3
@@ -56,6 +55,8 @@ proxy:
 # and an external cloud storage when deploying TechDocs for production use-case.
 # https://backstage.io/docs/features/techdocs/how-to-guides#how-to-migrate-from-techdocs-basic-to-recommended-deployment-approach
 techdocs:
+  requestUrl: http://localhost:7000/api/techdocs
+  storageUrl: http://localhost:7000/api/techdocs/static/docs
   builder: 'local' # Alternatives - 'external'
   generator:
     runIn: 'local' # Alternatives - 'local'
@@ -72,8 +73,9 @@ techdocs:
 
 scaffolder:
   github:
-    token: ${GITHUB_TOKEN}
-    visibility: public
+    token:
+      $env: GITHUB_TOKEN
+    visibility: public # or 'internal' or 'private'
   # see https://backstage.io/docs/features/software-templates/configuration for software template options
 
 catalog:
