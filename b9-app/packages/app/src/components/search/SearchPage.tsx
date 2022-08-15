@@ -83,8 +83,7 @@ const SearchPage = () => {
                     const { items } = await catalogApi.getEntities({
                       fields: ['metadata.name'],
                       filter: {
-                        'metadata.annotations.backstage.io/techdocs-ref':
-                          CATALOG_FILTER_EXISTS,
+                        'metadata.annotations.backstage.io/techdocs-ref': CATALOG_FILTER_EXISTS,
                       },
                     });
 
