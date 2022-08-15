@@ -3,11 +3,17 @@ kind: Component
 metadata:
   name: b9-app
   description: An example of a Backstage application.
-  # Example for optional annotations
-  # annotations:
-  #   github.com/project-slug: backstage/backstage
-  #   backstage.io/techdocs-ref: dir:.
+  tags:
+    - javascript
+    - react
+  links:
+    - url: https://github.com/b9-io/test-demo
+      title: Backstage Sample Service GitHub
+      icon: code
+  annotations:
+    github.com/project-slug: b9-io/test-demo
+    backstage.io/techdocs-ref: url:https://github.com/b9-io/test-demo
 spec:
   type: website
-  owner: john@example.com
   lifecycle: experimental
+  owner: "b9admin"
