@@ -1,15 +1,17 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: b9-app
-  description: An example of a Backstage application.
-  tags:
-    - javascript
-    - react
+  name: "test-demo"
+  description: "demo"
+  links:
+    - url: https://www.notion.so/Getting-Started-c19a951fdc3743ceb8f79c394039b1e1
+      title: GettingStarted
+      icon: dashboard
   annotations:
-    #github.com/project-slug: b9-io/test-demo
+    github.com/project-slug: b9-io/test-demo
+    #backstage.io/techdocs-ref: url:https://github.com/backstage/test-demo
     backstage.io/techdocs-ref: dir:.
 spec:
   type: website
-  lifecycle: experimental
-  owner: "leemills83"
+  lifecycle: production
+  owner: user:guest
