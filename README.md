@@ -1,13 +1,10 @@
-# test-demo
+# [Backstage](https://backstage.io)
 
-## Description
+This is your newly scaffolded Backstage App, Good Luck!
 
-demo
+To start the app, run:
 
-## Running Backstage application
-
-```bash
-$ cd b9-app
-$ yarn dev
+```sh
+yarn install
+yarn dev
 ```
-Use `git commit --no-verify` to skip husky checks

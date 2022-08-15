@@ -1,52 +1,55 @@
 {
-  "name": "test-demo",
-  "version": "0.0.0",
-  "description": "demo",
-  "license": "UNLICENSED",
-  "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "lint": "web-scripts lint --ignore-path=.gitignore",
-    "test": "web-scripts test --config jest.config.js",
-    "pretest:ci": "yarn lint",
-    "test:ci": "yarn test --ci --coverage --reporters=default --reporters=jest-junit"
+  "name": "root",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "14 || 16"
   },
-  "dependencies": {
-    "@zeit/next-typescript": "^1.1.1",
-    "babel-plugin-styled-components": "^1.10.6",
-    "next": "^9.1.1",
-    "react": "^16.8.5",
-    "react-dom": "^16.8.5",
-    "styled-components": "^4.3.2"
+  "scripts": {
+    "dev": "concurrently \"yarn start\" \"yarn start-backend\"",
+    "start": "yarn workspace app start",
+    "start-backend": "yarn workspace backend start",
+    "build": "backstage-cli repo build --all",
+    "build-image": "yarn workspace backend build-image",
+    "tsc": "tsc",
+    "tsc:full": "tsc --skipLibCheck false --incremental false",
+    "clean": "backstage-cli clean && lerna run clean",
+    "diff": "lerna run diff --",
+    "test": "backstage-cli test",
+    "test:all": "lerna run test -- --coverage",
+    "lint": "backstage-cli repo lint --since origin/master",
+    "lint:all": "backstage-cli repo lint",
+    "prettier:check": "prettier --check .",
+    "create-plugin": "backstage-cli create-plugin --scope internal",
+    "remove-plugin": "backstage-cli remove-plugin"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "plugins/*"
+    ]
   },
   "devDependencies": {
-    "@spotify/tsconfig": "^5.0.0",
-    "@spotify/web-scripts": "^5.0.0",
-    "@testing-library/react": "^8.0.1",
-    "@types/node": "^14.14.32",
-    "@types/react": "^16.8.7",
-    "@types/react-dom": "^16.8.2",
-    "@types/styled-components": "^4.1.18",
-    "husky": "^2.7.0",
-    "jest-junit": "^8.0.0",
-    "typescript": "^3.9.2"
+    "@backstage/cli": "^0.18.0",
+    "@spotify/prettier-config": "^12.0.0",
+    "concurrently": "^6.0.0",
+    "lerna": "^4.0.0",
+    "prettier": "^2.3.2",
+    "typescript": "~4.6.4",
+    "node-gyp": "^9.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "web-scripts precommit"
-    }
+  "resolutions": {
+    "@types/react": "^17",
+    "@types/react-dom": "^17"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+  "prettier": "@spotify/prettier-config",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,cjs}": [
+      "eslint --fix",
+      "prettier --write"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+    "*.{json,md}": [
+      "prettier --write"
     ]
   }
 }
